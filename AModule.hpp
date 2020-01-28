@@ -16,17 +16,26 @@ namespace Zia
 
 		/// \brief get the name of the current module.
 		/// \return the name of the module.
-		inline std::string name() const override;
+		inline std::string name() const override
+		{
+			return _name;
+		}
 	
 		/// \brief get the priority of the current module.
 		/// \return the priority of the module.
-		inline std::size_t priority() const override;
-	
+		inline std::size_t priority() const override
+		{
+			return _priority;
+		}
+
 		/// \brief get the status of the module.
 		/// \return status of the module.
-		inline ModuleStatus status() const override;
+		inline ModuleStatus status() const override
+		{
+			return _status;
+		}
 
-	private:
+	protected:
 
 		/* String containing the name of the module. */
 		std::string _name;
