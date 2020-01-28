@@ -1,15 +1,23 @@
+/**
+ *  @file     Data.hpp
+ *  @author   tabis
+ *  @date     2020-01-28
+ * 
+ *  project: zia
+ * 
+ */
 
 #pragma once
 
 #include <unordered_map>
 #include <string>
 
-/// \namespace Zia
-/// \brief The Zia web server namespace.
+/// @namespace Zia
+/// @brief The Zia web server namespace.
 namespace Zia
 {
-    /// \struct Request
-    /// \brief Structure containing request informations
+    /// @struct Request
+    /// @brief Structure containing request informations
     struct Request
     {
         /*! String containing the method of the request (GET, POST ...) */
@@ -31,8 +39,8 @@ namespace Zia
         std::string raw_resquest;
     };
 
-    /// \struct Response
-    /// \brief Structure containing response informations
+    /// @struct Response
+    /// @brief Structure containing response informations
     struct Response
     { 
         /* String containing the http version of the response */
@@ -57,8 +65,8 @@ namespace Zia
         std::string raw_response;
     };
 
-    /// \struct Data
-    /// \brief Structure containing request and response informations
+    /// @struct Data
+    /// @brief Structure containing request and response informations
     struct Data
     {
         /* Structure containing request informations */
