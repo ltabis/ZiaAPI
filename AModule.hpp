@@ -1,8 +1,6 @@
 
 #pragma once
 
-#include <string>
-
 #include "IModule.hpp"
 
 namespace Zia
@@ -13,6 +11,8 @@ namespace Zia
 	class AModule : public IModule
 	{
 	public:
+
+		AModule(IMediator *mediator, const std::string &name = "unknown", std::size_t priority = 0) : _mediator(mediator), _name(name), _priority(priority) {}
 
 		/// \brief get the name of the current module.
 		/// \return the name of the module.
@@ -45,5 +45,8 @@ namespace Zia
 
 		/* priority number of the current module. */
 		std::size_t _priority;
+
+		/* Reference to the mediator class */
+		IMediator *_mediator;
 	};
 }

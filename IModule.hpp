@@ -7,9 +7,13 @@
 
 #pragma once
 
-#include <string>
-
 #include "Data.hpp"
+
+// Forward declaration of the mediator interface.
+namespace Zia
+{
+	class IMediator;
+}
 
 /// \namespace Zia
 /// \brief The Zia web server namespace.
@@ -29,15 +33,15 @@ namespace Zia
 
 		/// \brief get the name of the current module.
 		/// \return the name of the module.
-		virtual inline std::string name() const = 0;
+		virtual std::string name() const = 0;
 	
 		/// \brief get the priority of the current module.
 		/// \return the priority of the module.
-		virtual inline std::size_t priority() const = 0;
+		virtual std::size_t priority() const = 0;
 	
 		/// \brief get the status of the module.
 		/// \return status of the module
-		virtual inline ModuleStatus status() const = 0;
+		virtual ModuleStatus status() const = 0;
 
 		/// \brief unload the current module.
 		virtual void unloadModule() = 0;
@@ -48,7 +52,7 @@ namespace Zia
 	
 		/// \brief set the priority of the current module.
 		/// \param priority : the priority to assign to current the module.
-		virtual inline void setPriority(std::size_t priority) = 0;
+		virtual void setPriority(std::size_t priority) = 0;
 
 		/// \brief process the data.
 		/// \param data structure with informations about the resquest and the response.
