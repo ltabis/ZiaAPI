@@ -19,13 +19,13 @@ namespace Zia
     struct Request
     {
         /*! String containing the method of the request (GET, POST ...) */
-		std::string method;
+        std::string method;
 
-		/*! String containing the uri of the request */
-		std::string requesturi;
+        /*! String containing the uri of the request */
+        std::string requesturi;
 
-		/*! String containing the http version */
-		std::string http_version;
+        /*! String containing the http version */
+        std::string http_version;
 
         /*! map of all headers in the request associated with their values respectively */
         std::unordered_map<std::string, std::string> headers;
@@ -42,13 +42,13 @@ namespace Zia
     struct Response
     { 
         /* String containing the http version of the response */
-		std::string http_version;
+        std::string http_version;
 
-		/* String containing the response's status code */
-		std::string status_code;
+        /* String containing the response's status code */
+        std::string status_code;
 
-		/* String containing the response's reason phrase */
-		std::string reason_phrase;
+        /* String containing the response's reason phrase */
+        std::string reason_phrase;
 
         /* Map containing all headers of the response */
         std::unordered_map<std::string, std::string> headers;
