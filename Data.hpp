@@ -1,9 +1,3 @@
-/*
-** EPITECH PROJECT, 2020
-** Zia
-** File description:
-** Data for communication between modules
-*/
 
 #pragma once
 

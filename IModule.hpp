@@ -37,7 +37,7 @@ namespace Zia
 	
 		/// \brief get the status of the module.
 		/// \return status of the module
-		virtual inline ModuleStatus getStatus() const = 0;
+		virtual inline ModuleStatus status() const = 0;
 
 		/// \brief unload the current module.
 		virtual void unloadModule() = 0;
