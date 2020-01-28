@@ -5,14 +5,14 @@ An API designed for an application server.
 
 ### The implementation of the server use the mediator design pattern. But why ?
 
-When a module as finished processing its data, whe need a way to send it asynchronously to the server.
-A great way of doing this is by using a meditor. How does it works ?
+When a module is done processing its data, whe need a way to send it asynchronously to the server.
+A great way of doing this is by using a mediator. How does it works ?
 
-You pass a reference of the mediator (the "skeleton" object of your server) to all of your modules, but with the IMediator interface.
+You give a reference of the mediator (the "skeleton" object of your server) to all of your modules, but through the IMediator interface.
 The interface has only one available method :
 ```notify(IModule *sender, Data &data);```
 
-It can be then used to send data to the main thread, without touching to methods that modules aren't suppose to use.
+Then it can be used to send data to the main thread (beacause each module is threaded), without accessing methods that modules aren't suppose to use.
 
 Go check this link if you want more informations about the mediator design pattern : https://refactoring.guru/design-patterns/mediator
 
@@ -21,11 +21,11 @@ Go check this link if you want more informations about the mediator design patte
 ### Modules inherites from the AModule abstract class, wich has several methods used to communicate with the mediator.
 
 In short, modules are processing units that fetch data from the mediator and do something with it. When a module is processing some data, it sets the ```_status``` field to ```Processing```, wich tells the mediator that it isn't available for now.
-When it's done processing data, it's sets the field to ```Done```, and when there's an error, ```Error```.
+When it's done processing data, it sets the field to ```Done```, and when there's an error, it sets the field to ```Error```.
 
-When they've done their work, they use the ```notify(IModule *sender, Data &data)``` method from the mediator to inform it of their work.
+When they've done their work, they use the ```notify(IModule *sender, Data &data)``` method from the mediator to inform they are done.
 
-This way, the mediator decides whether it needs to send the data over another module, instanciate another module, stop the processing of the request because their was an error etc ...
+This way, the mediator decides whether it needs to send the data to another module, instanciate another module, stop the processing of the request because there was an error etc ...
 
 All of the methods are documented inside header files. Go take a look.
 
