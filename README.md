@@ -52,6 +52,6 @@ When all fields of the structure have been filled, a module "Response Sender" wi
 If you want more information about fields of the data structure, check the header files, they are documented.
 
 Their is an UML available in the repository (the "Zia" file). It can be read with draw.io.
-This files contain all classes definition, with some example of the implementation of the server.
+This file contain all classes definition, with some example of the implementation of the server.
 
 If you have any questions, please use the "issue" on this repository. Specifie wich topic you would like to discuss over, and, if you can, an example of the step to follow to reproduce your error.
