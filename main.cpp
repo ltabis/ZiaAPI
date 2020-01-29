@@ -14,17 +14,17 @@ class Module : public Zia::AModule
             std::cout << "module unloaded." << std::endl;
         }
 	
-		void loadModule(std::size_t priority) override
+	void loadModule(std::size_t priority) override
         {
             (void) priority;
         }
 	
-		inline void setPriority(std::size_t priority) override
+	inline void setPriority(std::size_t priority) override
         {
             _priority = priority;
         }
 
-		void processData(Zia::Data &data) override
+	void processData(Zia::Data &data) override
         {
             _mediator->notify(this, data);
         }
