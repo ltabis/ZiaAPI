@@ -35,6 +35,11 @@ namespace Zia
 	public:
 
 		/** 
+		 * @brief destructor.
+		 */
+		virtual ~IModule() = default;
+
+		/** 
 		 * @brief get the name of the current module.
 		 * @return the name of the module.
 		 */

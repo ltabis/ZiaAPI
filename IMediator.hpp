@@ -22,6 +22,11 @@ namespace Zia
 	public:
 
 		/** 
+		 * @brief destructor.
+		 */
+		virtual ~IMediator() = default;
+
+		/** 
 		 * @brief notify the mediator that the sender has finished processing data.
 		 * @param sender : the module that has called notify.
 		 * @param data : the data processed by the sender.
