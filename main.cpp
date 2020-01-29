@@ -46,7 +46,7 @@ int main()
     Module m(&mediator, "Module", 1);
     Zia::Data data;
 
-	m.loadModule(1);
+    m.loadModule(1);
     m.processData(data);
 
     return 0;
