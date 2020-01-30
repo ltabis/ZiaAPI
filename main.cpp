@@ -4,6 +4,8 @@
 #include "AModule.hpp"
 #include "IMediator.hpp"
 
+#include <thread>
+
 class Module : public Zia::AModule
 {
     public:
@@ -20,6 +22,7 @@ class Module : public Zia::AModule
 	    void loadModule(std::size_t priority) override
         {
             (void) priority;
+
         }
 	
 	    inline void setPriority(std::size_t priority) override
@@ -29,7 +32,15 @@ class Module : public Zia::AModule
 
 	    void processData(Zia::Data &data) override
         {
+            _status = Zia::ModuleStatus::Processing;
+
+            std::this_thread::sleep_for(std::chrono::seconds(1));
             _mediator->notify(this, data);
+        }
+
+        void reloadConfig() override
+        {
+            
         }
 };
 
@@ -39,7 +50,7 @@ class Mediator : public Zia::IMediator
     {
         (void) data;
 
-        std::cout << "Hey! Mediator here. " << sender->name() << " sent me data!" << std::endl;
+        std::cout << "Hey! Mediator here. " << sender->name() << " sent me data! It lasted for " << sender->processTime().count() << " milliseconds." << std::endl;
     }
 };
 

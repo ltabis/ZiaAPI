@@ -9,6 +9,8 @@
 
 #pragma once
 
+#include <chrono>
+
 #include "Data.hpp"
 
 // Forward declaration of the mediator interface.
@@ -79,5 +81,24 @@ namespace Zia
 		 * @param data : structure with informations about the resquest and the response.
 		 */
 		virtual void processData(Data &data) = 0;
+
+		/** 
+		 * @brief Get the time spent processing data.
+		 * if the module isn't processing any data, it should return 0.
+		 * The server can verify if it needs to kill the module or not.
+		 * @return processing time in milliseconds.
+		 */
+		virtual std::chrono::milliseconds processTime() const = 0;
+
+		/** 
+		 * @brief set the configuration file needed by the module.
+		 * @param config_file_path : file to be loaded by the module when it needs additional configuration.
+		 */
+		virtual void setConfig(const std::string &config_file_path) = 0;
+
+		/** 
+		 * @brief reloads the configuration file of the current module.
+		 */
+		virtual void reloadConfig() = 0;
 	};
 }
